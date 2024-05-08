@@ -4,6 +4,8 @@ from scrapy.linkextractors import LinkExtractor
 class CrawlingBug(CrawlSpider):
     name = "happycrawler"
 
+    PROXY_SERVER = "myIP address"
+
     # list of scraping domains
     allowed_domains = ["toscrape.com"]
 
@@ -21,8 +23,8 @@ class CrawlingBug(CrawlSpider):
             # This will get the title & the price based on their data types in css
             "title": response.css(".product_main h1::text").get(),
             "price": response.css(".price_color::text").get(),
-            # we use the [2] because we are going to be returned 3 parts of the data
-            # we only want the 3rd one
-            "availability": response.css(".availability::text")[2].get(),
+            # we use the [1] because we are going to be returned 1 parts of the data
+            # we only want the 2nd one (use regex if you only want the numerical value)
+            "availability": response.css(".availability::text")[1].get().replace("\n", "").replace(" ",""),
 
         }

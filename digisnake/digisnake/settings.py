@@ -51,6 +51,9 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
+#  # ADD HERE:
+# 'scrapy.downloadermiddlewares.httpproxe.HttpProxyMiddleware': 1,
+# # Amend in middlewares.py downloader line 71: process_request
 #    "digisnake.middlewares.DigisnakeDownloaderMiddleware": 543,
 #}
 
